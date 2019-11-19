@@ -38,8 +38,12 @@ from math import factorial
 
 
 ```python
-def poisson_probability(lambd, x):
-    pass
+def poisson_probability(lamb, x):
+    return ((lamb**x)*np.exp(-lamb))/factorial(x)
+
+
+#lambda  𝜆  is the now the average number of successes that we anticipate in a given interval: 
+#the probability  𝑝  of success, times the number of intervals  𝑛 . 
 ```
 
 ## Question 1
@@ -48,10 +52,13 @@ A fireman fights, on average, 4 fires per month. What is the probability that a 
 
 
 ```python
-lambd_q1 = None
-prob_q1 = None
+lamb_q1 = 4/4
+prob_q1 = poisson_probability(lamb_q1, 2)
 print(prob_q1)  # Expected Output:  0.18393972058572117
 ```
+
+    0.18393972058572117
+
 
 ## Question 2
 
@@ -59,10 +66,13 @@ A car salesman sells an average of 4 cars per week.  What is the probability the
 
 
 ```python
-lambd_q2 = None
-prob_q2 = None
+lamb_q2 = 4/7
+prob_q2 = poisson_probability(lamb_q2, 1)
 print(prob_q2)  # Expected Output: 0.32269606971871956
 ```
+
+    0.32269606971871956
+
 
 ## Question 3
 
@@ -70,10 +80,13 @@ A website makes an average of 50 sales per day.  What is the probability that th
 
 
 ```python
-lambd_q3 = None
-prob_q3 = None
+lamb_q3 = 50/24
+prob_q3 = poisson_probability(lamb_q3, 3)
 print(prob_q3)  # Expected Output: 0.18764840049328912
 ```
+
+    0.18764840049328912
+
 
 ## Question 4
 
@@ -81,10 +94,16 @@ A factory produces 250 cars per week (assume that the factory runs day and night
 
 
 ```python
-lambd_q4 = None
-prob_q4 = None
+# hours per week
+hrs_wk = 24*7  # 168
+
+lamb_q4 = 250/hrs_wk
+prob_q4 = poisson_probability(lamb_q4, 3)
 print(prob_q4)   # Expected Output: 0.1240136186052091
 ```
+
+    0.1240136186052091
+
 
 ## Question 5
 
@@ -99,11 +118,15 @@ The following table shows the number of houses sold by a realtor each week for t
 
 
 ```python
-mean_weekly_sales = None
-lambd_q5 = None 
-prob_q5 = None
+mean_weekly_sales = np.mean([6,2,5,4])  # 4.25
+
+lamb_q5 =  mean_weekly_sales
+prob_q5 = poisson_probability(lamb_q5, 3)
 print(prob_q5)  # Expected Output: 0.18250047186175347
 ```
+
+    0.18250047186175347
+
 
 ## Summary
 
